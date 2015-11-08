@@ -1,0 +1,19 @@
+<div class="row-fluid">
+  <form novalidate ng-submit="addPoll.addPoll(newPoll)">
+    <div class="form-group">
+      <label for="pollName">Name your poll!</label>
+      <input type="text" id="pollName" placeholder="{{addPoll.pollPlaceholders.name}}" ng-model="newPoll.name">
+    </div>
+    <div class="form-group">
+      <label for="pollOptions1">Select your options</label>
+        <input type="text" id="pollOptions{{$index}}" ng-repeat="option in addPoll.pollPlaceholders.options track by $index"
+               placeholder="{{option}}" ng-model="newPoll.options[$index]" required>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-lg btn-default" ng-click="addPoll.addOption()">Add Option</button>
+      <button type="submit" class="btn btn-lg btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+
+
